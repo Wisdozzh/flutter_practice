@@ -2,16 +2,6 @@ import 'package:flutter/material.dart';
 
 void main() => runApp(SafeAreaPractice());
 
-class MyApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'I am SafeAreaPractice',
-      home: SafeAreaPractice(),
-    );
-  }
-}
-
 class SafeAreaPractice extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
