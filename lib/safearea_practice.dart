@@ -11,11 +11,12 @@ class SafeAreaPractice extends StatelessWidget {
           title: Text('I am SafeAreaPractice'),
         ),
         body: Container(
-          color: Colors.blue,
-          child: Center(
-            child: Text(
-                '阿大叔大叔大妈肯德基阿里的灵魂拉屎的季节就啊的设计开发v包括超喜欢北方i少部分i无比u表弟叫阿自己的空间中包括加扎尼加款智能监控i阿森纳i家'),
-          )),
+            color: Colors.blue,
+            child: Center(
+                child: SafeArea(
+              child: Text(
+                  '阿大叔大叔大妈肯德基阿里的灵魂拉屎的季节就啊的设计开发v包括超喜欢北方i少部分i无比u表弟叫阿自己的空间中包括加扎尼加款智能监控i阿森纳i家'),
+            ))),
       ),
     );
   }
