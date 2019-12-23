@@ -11,7 +11,7 @@ A new Flutter application.
 With Flutter, removing a widget completely is easy
 小控件和适合纵向和横向的布局。
 
-But sometimes, you run out of room.
+You just rebuild without it!
 但有时你可能没有足够的空间。
 
 One of the widgets that can help is Wrap.
