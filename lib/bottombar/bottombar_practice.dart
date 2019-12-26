@@ -62,8 +62,8 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
       ),
       bottomNavigationBar: FABBottomAppBar(
         centerItemText: '新建作业',
-//        color: Color(0xFF666666),
-//        selectedColor: Color(0xff5d64c6),
+        color: Color(0xFF666666),
+        selectedColor: Color(0xff5d64c6),
         notchedShape: CircularNotchedRectangle(),
         onTabSelected: _selectedTab,
         items: bottomAppBarItems
