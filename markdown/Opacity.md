@@ -5,66 +5,58 @@ A new Flutter application.
 ## Opacity
 
 
-
-## Screens aren't rectangles.
-
 With Flutter, removing a widget completely is easy
-小控件和适合纵向和横向的布局。
+在Flutter中，很容易就能完全移除一个控件。
 
 You just rebuild without it!
-但有时你可能没有足够的空间。
+你只要在重新创建中移除它即可！
 
-One of the widgets that can help is Wrap.
-Wrap是一个有助于改善此问题的小工具。
+But what if you need that widget to disappear but still take up space?
+但如果你想要让一个控件消失而它原来的位置仍然被保留呢？
 
-Wrap lays out its children, one at a time, a lot like a row or column.
-Wrap为单个的图标逐一进行布局，饼构成纵向或横向的一列。
+So the rest of your layout stays where it is, the way iOS is hidden then, Android's invisible work.
+这样其他的图标就能留在它们原来的位置上，就如在iOS中的hidden，Android中的invisible
 
-But when it runs out of space, it just wraps to the next line.
-但当空间不足的时候，便会新增一行
+Try an Opacity widget!
+那就请试一试Opacity这个控件吧！
+
+Just wrap your widget with Opacity, set the value to zero, and your're all set!
+只要使用Opacity来包装你的控件，将opacity的值设置为0，那么一切就都配置好了！
 
 ```
-Wrap(
-    children: [
-        MyWidget(),
-        MyWidget(),
-        MyWidget(),
+final widgets = [
+    MyWidget(Colors.green),
+    Opacity(
+        opacity:0.0
+        child:MyWidget(Colors.blue),
+    ),
+    MyWidget(Colors.yellow),
+];
+```
+You can use Opacity for blending one child of a stack onto another.
+如果你想用Opacity激昂一个子控件与另一层叠在一起。
+
+And if you want to animate a changing Opacity, there's an AnimatedOpacity widget too.
+或者你想创建一个动态的Opacity，我们也有一个叫AnimatedOpacity的控件
+
+Just give an Opacity and a duration, and when you rebuild, it animates the change automatically.
+你只要给Opacity添加一个时长，然后当你进行rebuild时，它就会自动创建动画
+
+```
+Stack(
+    children:[
+        MyImageWidget(),
+        AnimatedOpacity(
+            duration: _myDuration,
+            opacity: _MyOpacity,
+            child: MyGradientWidget(),
+        ),
     ],
 )
-```
-You can use the direction property to tell it whether to run vertically or horizontally.
 
-```
-Wrap(
-    direction: Axis.vertical,
-    children: [
-        MyWidget(),
-        MyWidget(),
-        MyWidget(),
-        MyWidget(),
-        MyWidget(),
-    ],
-)
+setState(() =>
+    _myOpacity = 0.0);
 ```
 
-And there's alignment and spacing properties as well.
-
-
-```
-Wrap(
-    direction: WrapAlignment.end,
-    spacing: 10.0,
-    runSpacing 20.0,
-    children: [
-        MyWidget(),
-        MyWidget(),
-        MyWidget(),
-        MyWidget(),
-        MyWidget(),
-    ],
-)
-```
-
-Wrap works really well with things like dialog buttons and chips...
 
 [Wrap](https://api.flutter.dev/flutter/widgets/Wrap-class.html)
